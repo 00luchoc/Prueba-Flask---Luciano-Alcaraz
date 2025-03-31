@@ -17,3 +17,17 @@ source .venv/bin/activate
 ```
 pip install flask
 ```
+
+## Para correr el programa
+
+**Solo la maquina local**:
+
+```
+flask run
+```
+
+**esde cualquier maquina de la red**:
+
+```
+flask run -h 0.0.0.0
+```
