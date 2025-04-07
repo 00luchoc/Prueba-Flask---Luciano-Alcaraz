@@ -26,6 +26,12 @@ pip install flask
 flask run
 ```
 
+**Para activar el debugger**:
+
+```
+flask run --debug
+```
+
 **esde cualquier maquina de la red**:
 
 ```
