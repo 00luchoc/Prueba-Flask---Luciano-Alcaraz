@@ -17,13 +17,22 @@ def CerrarConexion():
     db.close()
     db = None
 
+@app.route("/usuarios")
+def usuarios():
+    AbrirConexion()
+    cursor = db.cursor()
+    cursor.execute("SELECT usuario, id FROM usuarios ")
+    res = cursor.fetchall()
+    CerrarConexion()
+    return render_template("ListaUsuarios.html", usuarios=res)
+
 @app.route("/mostrar-datos-plantilla/<int:id>")
 def datos_plantilla(id):
     AbrirConexion()
     cursor = db.cursor()
     cursor.execute("SELECT id, usuario, email, telefono, direccion FROM usuarios WHERE id = ?; ", (id,))
     res = cursor.fetchone()
-    CerrarConexion
+    CerrarConexion()
     usuario = None
     email = None
     telefono = None
@@ -77,3 +86,4 @@ def dado(caras):
     from random import randint
     n = randint(1, caras)
     return f"<p>Tire un dado de {caras} caras, salio {n}</p>"
+

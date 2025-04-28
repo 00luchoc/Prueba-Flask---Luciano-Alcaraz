@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Usuarios</title>
+    </head>
+    <body>
+        <ul>
+            {% for usuario in usuarios %}
+            <li>
+                <a href="{{ url_for('datos_plantilla', id= usuario['id']) }}">{{usuario['usuario']}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
